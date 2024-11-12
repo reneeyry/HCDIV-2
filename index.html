@@ -30,28 +30,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             transform-style: preserve-3d;
             transition: transform 0.8s;
         }
-        .page img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 4px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .comment {
-            position: absolute;
-            bottom: 15px;
-            left: 0;
-            right: 0;
-            font-size: 16px;
-            color: #555;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 5px;
-            border-radius: 4px;
-        }
-        /* Flip effect */
         .page.is-flipped {
             transform: rotateY(180deg);
         }
@@ -62,9 +43,30 @@
             backface-visibility: hidden;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
             border-radius: 8px;
+        }
+        .front img, .back img {
+            width: 80%;
+            height: auto;
+            max-height: 60%;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .comment {
+            font-size: 16px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-y: auto;
+            max-height: 35%;
+            width: 90%;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         .back {
             transform: rotateY(180deg);
@@ -78,30 +80,40 @@
             <!-- Front of the page -->
             <div class="front">
                 <img src="https://github.com/reneeyry/HCDIV-2/blob/main/breaking-down-apples-billions.png?raw=true" alt="Picture 1">
-                <div class="comment">Example 1: Apple FY24 Income Statement Chart
-Introduction to charts ：This chart is a visualization of Apple's FY24 income flow, using a Sankey diagram to display revenue, costs, and net profit across various product lines. On the left, the chart shows major product lines: iPhone, MacBook, iPad, Watch and AirPods, as well as Services. Each product line's revenue is represented by gray flows that merge into the total revenue. The middle section displays Apple’s overall revenue and costs, where revenue flows into gross profit and then further into operating profit. Finally, on the right, the chart presents Apple’s net profit, including details on taxes, R&D, and SG&A expenses. The width and color of each flow represent the relationships between revenue and expenses, with annotations showing year-over-year percentage changes (e.g., growth or decrease).
-1. Data and presentation issues
-A:Data completeness and accuracy: This chart shows the revenue sources and cost distribution of multiple product lines. The data is complete, but due to the large number of product lines, it may appear to be overloaded visually.
-B:Presentation: The chart uses a Sankey Diagram, which is suitable for expressing data flow. However, the distribution of revenue and cost is too dense, and the use of colors (red, green, and gray) attempts to distinguish revenue and cost, but makes the chart appear crowded, affecting the clarity of information communication.
-2. Improvement suggestions
-Simplify and separate information: It is recommended to display the revenue and cost of different product lines separately, or use a bar chart to show the revenue contribution of each product, which can more intuitively understand the proportion of each part.
-Reduce the use of colors: Appropriately reduce the color or adjust the contrast to highlight key data, such as the difference between revenue and cost, to avoid visual overcrowding and confusion.
-</div>
+                <div class="comment">
+                    <strong>Example 1: Apple FY24 Income Statement Chart</strong><br>
+                    Introduction: This chart visualizes Apple's FY24 income flow using a Sankey diagram to show revenue, costs, and net profit across product lines. Major lines include iPhone, MacBook, iPad, and Services. Each product’s revenue flows into total revenue, then through costs and profits, leading to net profit. Year-over-year changes are noted.<br><br>
+                    <strong>Data and Presentation Issues:</strong><br>
+                    <ul>
+                        <li>Data completeness: Comprehensive but visually overloaded due to many product lines.</li>
+                        <li>Presentation: Dense revenue and cost distribution. Color use (red, green, gray) makes it appear crowded.</li>
+                    </ul>
+                    <strong>Improvement Suggestions:</strong><br>
+                    <ul>
+                        <li>Simplify information by separating product lines or using a bar chart.</li>
+                        <li>Reduce colors to highlight key data like revenue-cost differences.</li>
+                    </ul>
+                </div>
             </div>
             <!-- Back of the page -->
             <div class="back">
                 <img src="https://github.com/reneeyry/HCDIV-2/blob/main/i-built-a-graph-of-all-listed-titles-and-principals-on-imdb.png?raw=true" alt="Picture 2">
-                <div class="comment">Example 2: Network Graph
-This network graph represents David Letterman’s “circle of influence” on IMDb. The central node represents David Letterman, and the dense outer ring around him is composed of individual episodes of his show, illustrating the massive number of episodes he was involved in, particularly in "The David Letterman Show." The dense nodes and connections highlight his significant presence and influence in television. Beyond the direct episode nodes, the graph also shows other projects and collaborations, emphasizing his broad network within the entertainment industry. The layout uses concentric circles, with a dark background and color-coded nodes, aiming to display the depth and breadth of his influence in the industry. However, the high density of information makes it challenging to distinguish individual connections in the outer ring.
-1.Problems with data and presentation
-A:Data density: This network diagram contains a large number of nodes and connections, resulting in dense information. Especially in the outer circle, the nodes are very dense and it is difficult to identify individual information.
-B :Suitability of the chart type: Although network diagrams are suitable for showing the relationship between nodes, they will appear messy when there are too many nodes. Lack of color or shape grouping makes it impossible to intuitively distinguish different node groups or relationships.
-C:Color matching problem: The overall chart uses dark tones. Although the visual effect is beautiful, it is not intuitive enough in conveying information. The single color of small nodes makes the chart less recognizable.
-2.Suggestions for improvement
-A:Use group classification: Different groups can be distinguished by color or shape to help users better understand the relationship.
-B:Simplify nodes: You can filter and display core or main nodes to reduce density and enhance readability.
-C:Improve label clarity: Increase the font size or mark and explain the core nodes to make it easier for users to find key information.
-</div>
+                <div class="comment">
+                    <strong>Example 2: Network Graph</strong><br>
+                    This network graph represents David Letterman’s "circle of influence" on IMDb. The central node is David Letterman, surrounded by individual episodes of his show, highlighting his extensive TV presence. Outer nodes show other projects, emphasizing his entertainment industry network.<br><br>
+                    <strong>Data and Presentation Issues:</strong><br>
+                    <ul>
+                        <li>Data density: High, making individual nodes difficult to identify in the outer circle.</li>
+                        <li>Chart suitability: Effective for relationships but becomes cluttered with many nodes.</li>
+                        <li>Color issue: Dark tones make information less intuitive.</li>
+                    </ul>
+                    <strong>Improvement Suggestions:</strong><br>
+                    <ul>
+                        <li>Use color groups to distinguish different project types.</li>
+                        <li>Simplify by showing core nodes only.</li>
+                        <li>Increase label clarity for key information.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
